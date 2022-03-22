@@ -21,6 +21,7 @@ class MyMacro(Runnable):
         subnets = self.config.get('privateSubnets')
         securitygroup = self.config.get('securityGroup')
         
+        print(securitygroup)
         
-        result = subnets, securitygroup
+        result = subnets
         return result
