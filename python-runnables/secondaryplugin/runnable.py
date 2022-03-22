@@ -41,6 +41,6 @@ class MyMacro(Runnable):
         
         
         
-        output = command_outputs.append(c.run())
+        output = c.run()
         result = output
         return result
