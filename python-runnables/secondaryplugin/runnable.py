@@ -42,5 +42,6 @@ class MyMacro(Runnable):
         
         
         output = c.run()
+        print("success")
         result = output
         return result
