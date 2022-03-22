@@ -1,0 +1,12 @@
+{
+  "actions": [
+    {
+      "ts": 1647973157738,
+      "action": "INSTALL",
+      "user": "nate.kim@dataiku.com"
+    }
+  ],
+  "gitState": {
+    "enabled": false
+  }
+}

@@ -1,0 +1,51 @@
+{
+    "meta": {
+        "label": "Add node group",
+        "description": "Create a new node group in the cluster",
+        "icon": "icon-plus-sign"
+    },
+
+    "impersonate": false,
+
+    "permissions": [],
+
+    "resultType": "HTML",
+
+    "resultLabel": "pools",
+    "extension": "html",
+    "mimeType": "text/html",
+
+    "macroRoles": [
+        { "type":"CLUSTER", "targetParamsKey":"clusterId", "limitToSamePlugin":true }
+    ],
+    
+    "params": [
+        {
+            "name": "clusterId",
+            "label": "Cluster",
+            "type": "CLUSTER",
+            "description": "Cluster (in DSS)",
+            "mandatory": true
+        },
+        {
+            "name": "nodeGroupId",
+            "label": "Node group",
+            "description": "Id of node group to create, if not default",
+            "type": "STRING",
+            "mandatory": false
+        },
+        {
+            "name": "nodePool",
+            "label": "Node group",
+            "type": "PRESET",
+            "parameterSetId" : "node-pool-request",
+            "mandatory" : true
+        },
+        {
+            "name": "privateNetworking",
+            "label": "Private Nodes",
+            "description": "Use this option when using the advanced YAML configuration for the EKS cluster and prviate networking",
+            "type": "BOOLEAN"
+        }
+    ]
+}

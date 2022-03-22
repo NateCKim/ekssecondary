@@ -1,0 +1,81 @@
+{
+    "meta" : {
+        "label" : "Create EKS cluster",
+        "description" : "Create EKS clusters",
+        "icon" : "icon-puzzle-piece",
+        "longDescription" : ""
+    },
+    
+    "architecture" : "KUBERNETES",
+    
+    "params": [
+        {
+            "name": "connectionInfo",
+            "label": "Connection",
+            "type": "PRESET",
+            "parameterSetId" : "connection-info",
+            "mandatory" : true
+        },
+        {
+            "name": "s-network",
+            "type":"SEPARATOR",
+            "label": "Networking"
+        },
+        {
+            "name": "networkingSettings",
+            "label": "Network settings",
+            "type": "PRESET",
+            "parameterSetId" : "networking-settings",
+            "mandatory" : false
+        },
+        {
+            "name": "s-nodes",
+            "type":"SEPARATOR",
+            "label": "Cluster nodes"
+        },
+        {
+            "name": "nodePool",
+            "label": "Initial node pool",
+            "type": "PRESET",
+            "parameterSetId" : "node-pool-request",
+            "mandatory" : false
+        },
+        {
+            "name": "s-advanced",
+            "type":"SEPARATOR",
+            "label": "Advanced"
+        },
+        {
+            "name": "k8sVersion",
+            "label": "Kubernetes version",
+            "type": "STRING",
+            "mandatory" : false,
+            "description" : "Leave empty for current default of eksctl"
+        },
+        {
+            "name": "advanced",
+            "label": "Use Advanced Configuration",
+            "type": "BOOLEAN"
+        },
+        {
+            "name": "clusterAutoScaling",
+            "label": "Use Cluster Autoscaling",
+            "type": "BOOLEAN",
+            "visibilityCondition": "model.advanced == true"
+        },
+        {
+            "name": "advancedGPU",
+            "label": "Use GPU",
+            "type": "BOOLEAN",
+            "visibilityCondition": "model.advanced == true"
+        },
+        {
+            "name": "advancedYaml",
+            "label": "Advanced Configuration",
+            "description": "Use YAML. If you use advanced configuration, presets will not be used. For examples, see https://github.com/weaveworks/eksctl/tree/master/examples",
+            "type": "TEXTAREA",
+            "mandatory" : false,
+            "visibilityCondition": "model.advanced == true"
+        }
+    ]
+}
