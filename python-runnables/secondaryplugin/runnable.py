@@ -18,30 +18,9 @@ class MyMacro(Runnable):
     def run(self, progress_callback):
         cluster_data, dss_cluster_settings, dss_cluster_config = get_cluster_from_dss_cluster(self.config['clusterId'])
 
-        if cluster_data is None:
-            raise Exception("No cluster data (not started?)")
-        cluster_def = cluster_data.get("cluster", None)
-        if cluster_def is None:
-            raise Exception("No cluster definition (starting failed?)")
-
-        cluster_id = cluster_def["Name"]
-        kube_config_path = dss_cluster_settings.get_raw()['containerSettings']['executionConfigsGenericOverrides'][
-            'kubeConfigPath']
-        connection_info = dss_cluster_config.get('config', {}).get('connectionInfo', {})
-        
-        args = ['eks', 'update-kubeconfig']
-        args = args + ['--name', self.config['clusterId']]
-
-        if _has_not_blank_property(connection_info, 'region'):
-            args = args + ['--region', connection_info['region']]
-        elif 'AWS_DEFAULT_REGION' is os.environ:
-            args = args + ['--region', os.environ['AWS_DEFAULT_REGION']]
-
-        c = AwsCommand(args, connection_info)
-        
-        output = c.run()
-        
+        node_group_id = self.config.get('nodeGroupId', None)
         
 
-        result = "success"
+
+        result = node_group_id
         return result
