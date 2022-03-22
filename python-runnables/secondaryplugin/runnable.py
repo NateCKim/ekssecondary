@@ -28,9 +28,6 @@ class MyMacro(Runnable):
         kube_config_path = dss_cluster_settings.get_raw()['containerSettings']['executionConfigsGenericOverrides'][
             'kubeConfigPath']
         connection_info = dss_cluster_config.get('config', {}).get('connectionInfo', {})
-
-    def     
-        
         
         
         
