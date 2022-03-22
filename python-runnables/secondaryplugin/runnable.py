@@ -19,6 +19,11 @@ class MyMacro(Runnable):
     def run(self, progress_callback):
         cluster_data, dss_cluster_settings, dss_cluster_config = get_cluster_from_dss_cluster(self.config['clusterId'])
 
+        cluster_id = cluster_def["Name"]
+        kube_config_path = dss_cluster_settings.get_raw()['containerSettings']['executionConfigsGenericOverrides'][
+            'kubeConfigPath']
+        connection_info = dss_cluster_config.get('config', {}).get('connectionInfo', {})
+        
         args = ['eks', 'update-kubeconfig']
         args = args + ['--name', self.config['clusterId']]
 
