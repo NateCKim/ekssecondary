@@ -1,8 +1,8 @@
 {
     "meta": {
-        "label": "Secondary CIDR",
+        "label": "Secondary",
 
-        "description": "Secondary CIDR",
+        "description": "Run a kubectl command on the cluster",
 
         "icon": "icon-play"
     },
@@ -15,25 +15,29 @@
 
     "params": [
         {
-            "name": "clusterId",
-            "label": "Cluster",
-            "type": "CLUSTER",
-            "description": "Cluster (in DSS)",
+            "name": "args",
+            "label": "Args",
+            "type": "STRINGS",
+            "description": "Kubectl command, like 'get pods'",
             "mandatory": true
         },
         {
-            "name": "privateSubnets",
-            "label": "VPC private subnets",
-            "type": "STRINGS",
-            "description": "Put at least 2 subnets. Check https://eksctl.io/usage/vpc-configuration/#use-existing-vpc-other-custom-configuration for constraints.",
-            "mandatory" : false
+            "name": "namespace",
+            "label": "Namespace",
+            "type": "STRING",
+            "mandatory": false
         },
         {
-            "name": "securityGroup",
-            "label": "Security Group",
-            "type": "STRINGS",
+            "name": "format",
+            "label": "Output format",
+            "type": "SELECT",
             "mandatory": false,
-            "description": "put security group to use. Recommended to use the same as nodegroup security group"
+            "selectChoices": [
+                {"value":"none","label":"Default"},
+                {"value":"json","label":"JSON"},
+                {"value":"wide","label":"Wide"}
+            ],
+            "defaultValue":"none"
         }
     ],
 
