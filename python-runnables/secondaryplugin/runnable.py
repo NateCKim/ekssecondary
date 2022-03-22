@@ -39,9 +39,9 @@ class MyMacro(Runnable):
 
         c = AwsCommand(args, connection_info)
         
-        
-        
         output = c.run()
+        
+        
 
         result = "success"
         return result
