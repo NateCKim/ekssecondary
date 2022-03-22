@@ -39,6 +39,7 @@ class MyMacro(Runnable):
             args = args + ['--region', os.environ['AWS_DEFAULT_REGION']]
 
         c = AwsCommand(args, connection_info)
+        command_outputs.append(c.run())
 
         output = str(c.run())
 
