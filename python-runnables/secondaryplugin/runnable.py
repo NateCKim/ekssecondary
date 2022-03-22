@@ -19,6 +19,12 @@ class MyMacro(Runnable):
     def run(self, progress_callback):
         cluster_data, dss_cluster_settings, dss_cluster_config = get_cluster_from_dss_cluster(self.config['clusterId'])
 
+        if cluster_data is None:
+            raise Exception("No cluster data (not started?)")
+        cluster_def = cluster_data.get("cluster", None)
+        if cluster_def is None:
+            raise Exception("No cluster definition (starting failed?)")        
+        
         cluster_id = cluster_def["Name"]
         kube_config_path = dss_cluster_settings.get_raw()['containerSettings']['executionConfigsGenericOverrides'][
             'kubeConfigPath']
