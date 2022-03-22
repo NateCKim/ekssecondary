@@ -38,11 +38,9 @@ class MyMacro(Runnable):
             args = args + ['--region', os.environ['AWS_DEFAULT_REGION']]
 
         c = AwsCommand(args, connection_info)
-        command_outputs.append(c.run())
-        if command_outputs[-1][1] != 0:
-            return make_html(command_outputs)
         
         
-        output = AwsCommand.run(args, connection_info)
+        
+        output = command_outputs.append(c.run())
         result = output
         return result
