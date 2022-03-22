@@ -16,7 +16,18 @@ class MyMacro(Runnable):
         return None
 
     def run(self, progress_callback):
-        # Do some things. You can use the dataiku package here
+        cluster_data, dss_cluster_settings, dss_cluster_config = get_cluster_from_dss_cluster(self.config['clusterId'])
+
+        if cluster_data is None:
+            raise Exception("No cluster data (not started?)")
+        cluster_def = cluster_data.get("cluster", None)
+        if cluster_def is None:
+            raise Exception("No cluster definition (starting failed?)")
+
+        cluster_id = cluster_def["Name"]
+        kube_config_path = dss_cluster_settings.get_raw()['containerSettings']['executionConfigsGenericOverrides'][
+            'kubeConfigPath']
+        connection_info = dss_cluster_config.get('config', {}).get('connectionInfo', {})
 
         result = "It worked"
         return result
