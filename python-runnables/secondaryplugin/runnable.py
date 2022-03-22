@@ -41,7 +41,7 @@ class MyMacro(Runnable):
             args = args + ['--region', os.environ['AWS_DEFAULT_REGION']]
 
         c = AwsCommand(args, connection_info)
-        command_outputs.append(str(c.run()))
+        command_outputs.append(c.run())
 
 
         
@@ -49,7 +49,7 @@ class MyMacro(Runnable):
         securitygroup = self.config.get('securityGroup')
         #getting AZ of the private subnet
         #CLI command to get a list of AZ based on subnetID (need JQ or Sed like command to filter it)
-        print ("ASdfjkasdfjkahsdlfkahskdfhalskdfhklasdhflksadf" + subnets)
+
         
         with open("test.yaml", "w") as f:
             f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
