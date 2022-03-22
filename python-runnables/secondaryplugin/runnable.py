@@ -31,7 +31,6 @@ class MyMacro(Runnable):
         
         
         
-        
         output = AwsCommand.run(eks)
         result = output
         return result
