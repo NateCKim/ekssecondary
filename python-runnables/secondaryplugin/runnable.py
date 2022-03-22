@@ -34,7 +34,7 @@ class MyMacro(Runnable):
               subnet: """ + Eniconfig.subnetId + """    #add multiple subnets 
               securityGroups:
               - """ + Eniconfig.securityGroupId)
-            f.close())
+            f.close()
         
         result = subnets
         return result
