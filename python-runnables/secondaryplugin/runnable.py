@@ -18,9 +18,9 @@ class MyMacro(Runnable):
     def run(self, progress_callback):
         cluster_data, dss_cluster_settings, dss_cluster_config = get_cluster_from_dss_cluster(self.config['clusterId'])
 
-        node_group_id = self.config.get('privateSubnets')
-        print(node_group_id[0])
-
-
-        result = node_group_id
+        subnets = self.config.get('privateSubnets')
+        securitygroup = self.config.get('securityGroup')
+        
+        
+        result = subnets, securitygroup
         return result
