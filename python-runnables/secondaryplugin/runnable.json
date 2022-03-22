@@ -1,8 +1,8 @@
 {
     "meta": {
-        "label": "Run Kubectl command",
+        "label": "Secondary CIDR",
 
-        "description": "Run a kubectl command on the cluster",
+        "description": "Secondary CIDR",
 
         "icon": "icon-play"
     },
