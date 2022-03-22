@@ -42,7 +42,8 @@ class MyMacro(Runnable):
 
         c = AwsCommand(args, connection_info)
         command_outputs.append(c.run())
-
+        if command_outputs[-1][1] != 0:
+            return make_html(command_outputs)
 
         
         subnets = self.config.get('privateSubnets')
