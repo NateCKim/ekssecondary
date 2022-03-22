@@ -29,7 +29,7 @@ class MyMacro(Runnable):
             'kubeConfigPath']
         connection_info = dss_cluster_config.get('config', {}).get('connectionInfo', {})
         
-        args = ['eks', 'update-kubeconfig']
+            args = ['eks', 'update-kubeconfig']
             args = args + ['--name', self.config['clusterId']]
             
             if _has_not_blank_property(connection_info, 'region'):
