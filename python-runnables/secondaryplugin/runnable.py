@@ -43,5 +43,5 @@ class MyMacro(Runnable):
         
         output = c.run()
 
-        result = c
+        result = "success"
         return result
