@@ -29,5 +29,12 @@ class MyMacro(Runnable):
             'kubeConfigPath']
         connection_info = dss_cluster_config.get('config', {}).get('connectionInfo', {})
 
+    def     
+        
+        
+        
+        
+        
+        AwsCommand.run_and_get_output("aws eks update-kubeconfig --name" + self.config['clusterId'])
         result = kube_config_path
         return result
