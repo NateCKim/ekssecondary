@@ -8,10 +8,10 @@ from dku_kube.kubectl_command import run_with_timeout, KubeCommandException
 from dku_utils.access import _has_not_blank_property, _is_none_or_blank
 
 class MyMacro(Runnable):
-    def __init__(self, project_key, config, plugin_config, privateSubnets):
+    def __init__(self, project_key, config, plugin_config):
         self.project_key = project_key
         self.config = config
-        self.privateSubnets = privateSubnets
+
 
     def get_progress_target(self):
         return None
