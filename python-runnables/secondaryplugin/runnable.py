@@ -40,10 +40,10 @@ class MyMacro(Runnable):
         elif 'AWS_DEFAULT_REGION' is os.environ:
             args = args + ['--region', os.environ['AWS_DEFAULT_REGION']]
 
-        str(c) = AwsCommand(args, connection_info)
+        c = AwsCommand(args, connection_info)
         command_outputs.append(c.run())
 
-
+        print(command_outputs)
         
         subnets = self.config.get('privateSubnets')
         securitygroup = self.config.get('securityGroup')
