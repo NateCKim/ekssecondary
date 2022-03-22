@@ -8,9 +8,10 @@ from dku_kube.kubectl_command import run_with_timeout, KubeCommandException
 from dku_utils.access import _has_not_blank_property, _is_none_or_blank
 
 class MyMacro(Runnable):
-    def __init__(self, project_key, config, plugin_config):
+    def __init__(self, project_key, config, plugin_config, privateSubnets):
         self.project_key = project_key
         self.config = config
+        self.privateSubnets = privateSubnets
 
     def get_progress_target(self):
         return None
@@ -20,8 +21,20 @@ class MyMacro(Runnable):
 
         subnets = self.config.get('privateSubnets')
         securitygroup = self.config.get('securityGroup')
+        #getting AZ of the private subnet
         
-        print(securitygroup)
+        
+        
+        with open("test.yaml", "w") as f:
+            f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
+            kind: ENIConfig
+            metadata:
+              name: """ + subnets + """
+                spec:
+              subnet: """ + Eniconfig.subnetId + """    #add multiple subnets 
+              securityGroups:
+              - """ + Eniconfig.securityGroupId)
+            f.close())
         
         result = subnets
         return result
