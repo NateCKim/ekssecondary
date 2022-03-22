@@ -29,5 +29,5 @@ class MyMacro(Runnable):
             'kubeConfigPath']
         connection_info = dss_cluster_config.get('config', {}).get('connectionInfo', {})
 
-        result = dss_cluster_config
+        result = kube_config_path
         return result
