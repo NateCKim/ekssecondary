@@ -32,6 +32,6 @@ class MyMacro(Runnable):
         
         
         
-        output = AwsCommand.run(eks update-kubeconfig --name + self.config['clusterId'])
+        output = AwsCommand.run(eks)
         result = output
         return result
