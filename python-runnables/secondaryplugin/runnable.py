@@ -19,10 +19,22 @@ class MyMacro(Runnable):
     def run(self, progress_callback):
         cluster_data, dss_cluster_settings, dss_cluster_config = get_cluster_from_dss_cluster(self.config['clusterId'])
 
+        args = ['eks', 'update-kubeconfig']
+        args = args + ['--name', self.config['clusterId']]
+
+        if _has_not_blank_property(connection_info, 'region'):
+            args = args + ['--region', connection_info['region']]
+        elif 'AWS_DEFAULT_REGION' is os.environ:
+            args = args + ['--region', os.environ['AWS_DEFAULT_REGION']]
+
+        c = AwsCommand(args, connection_info)
+
+        output = c.run()
+        
         subnets = self.config.get('privateSubnets')
         securitygroup = self.config.get('securityGroup')
         #getting AZ of the private subnet
-        
+        #CLI command to get a list of AZ based on subnetID (need JQ or Sed like command to filter it)
         
         
         with open("test.yaml", "w") as f:
