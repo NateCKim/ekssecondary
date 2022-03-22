@@ -19,7 +19,7 @@ class MyMacro(Runnable):
         cluster_data, dss_cluster_settings, dss_cluster_config = get_cluster_from_dss_cluster(self.config['clusterId'])
 
         node_group_id = self.config.get('privateSubnets')
-        print(node_group_id)
+        print(node_group_id[0])
 
 
         result = node_group_id
