@@ -19,6 +19,8 @@ class MyMacro(Runnable):
     def run(self, progress_callback):
         cluster_data, dss_cluster_settings, dss_cluster_config = get_cluster_from_dss_cluster(self.config['clusterId'])
 
+        command_outputs = []
+            
         if cluster_data is None:
             raise Exception("No cluster data (not started?)")
         cluster_def = cluster_data.get("cluster", None)
