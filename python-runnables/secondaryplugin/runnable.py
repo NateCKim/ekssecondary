@@ -83,6 +83,7 @@ class MyMacro(Runnable):
             args = args + ['--subnet-ids ' + subnet]
             q = AwsCommand(args, connection_info)
             command_outputs.append(q.run())
+            print(command_outputs)
             if command_outputs[-1][1] != 0:
                 return make_html(command_outputs)
             #for each in subnets:
