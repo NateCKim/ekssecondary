@@ -117,8 +117,8 @@ class MyMacro(Runnable):
             eniCfg['spec']['subnet'] = t['enisub']
             #print(eniCfg)
             yamlCfg += yaml.dump(eniCfg)
-            if
-            yamlCfg += '---' + '\n'
+                if
+                yamlCfg += '---' + '\n'
 
         print(yamlCfg)
         
