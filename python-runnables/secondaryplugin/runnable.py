@@ -126,7 +126,7 @@ class MyMacro(Runnable):
         command_outputs = []
         command_outputs.append(ancmd)
         print(json.dumps(ancmd))
-        print (command_outputs)        
+      
         
         #can get rid of it afterwards. Only used for testing syntax as successful return will not generate the output
         with open("test.yaml", "w") as f:
