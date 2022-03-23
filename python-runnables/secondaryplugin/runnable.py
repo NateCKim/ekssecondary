@@ -81,7 +81,10 @@ class MyMacro(Runnable):
             t['enisub'] = subnet
             args = ['ec2', 'describe-subnets']
             args = args + ['--subnet-ids ' + subnet]
-            print(args)
+            q = AwsCommand(args, connection_info)
+            command_outputs.append(q.run())
+            if command_outputs[-1][1] != 0:
+                return make_html(command_outputs)
             #for each in subnets:
              #   args = ['ec2', 'describe-subnets']
               #  args = args + ['--subnet-ids ' + each]
