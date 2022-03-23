@@ -83,7 +83,6 @@ class MyMacro(Runnable):
                 args = ['ec2', 'describe-subnets']
                 args = args + ['--subnet-ids ' + each]
             sublist.append(t)
-            print(t)
             
         print(securitygroup)
         print(sublist)
