@@ -49,6 +49,8 @@ class MyMacro(Runnable):
             'kubeConfigPath']
         connection_info = dss_cluster_config.get('config', {}).get('connectionInfo', {})
         
+        
+        print(cluster_id)
 
         args = ['eks', 'update-kubeconfig']
         args = args + ['--name', str(self.config['clusterId'])]
@@ -60,7 +62,6 @@ class MyMacro(Runnable):
 
         c = AwsCommand(args, connection_info)
         command_outputs.append(c.run())
-        print("worked")
         if command_outputs[-1][1] != 0:
             return make_html(command_outputs)
         
@@ -69,7 +70,7 @@ class MyMacro(Runnable):
         subnets = self.config.get('privateSubnets')
         securitygroup = self.config.get('securityGroup')
         
-        print(subnets)
+
         #getting AZ of the private subnet
         #CLI command to get a list of AZ based on subnetID (need JQ or Sed like command to filter it)
 
