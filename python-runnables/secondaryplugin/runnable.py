@@ -32,6 +32,8 @@ class MyMacro(Runnable):
             'kubeConfigPath']
         connection_info = dss_cluster_config.get('config', {}).get('connectionInfo', {})
         
+        securitygroup = self.config.get('securityGroup')
+        print(securitygroup)
 
         args = ['eks', 'update-kubeconfig']
         args = args + ['--name', str(self.config['clusterId'])]
