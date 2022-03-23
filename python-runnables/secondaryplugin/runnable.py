@@ -72,6 +72,7 @@ class MyMacro(Runnable):
             return make_html(command_outputs)
         print(command_outputs)
         
+        env = os.environ.copy()
         command = ['kubectl', 'set', 'env', 'daemonset', 'aws-node', '-n', 'kube-system', 'AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG=true']
         logging.info("Run : %s" % json.dumps(command))
         try:
