@@ -90,9 +90,9 @@ class MyMacro(Runnable):
             q = AwsCommand(args, connection_info)
             command_outputs.append(q.run())
             print(command_outputs[1][2])
-            y = zonedict
+            y = subdict
             y['az'] = command_outputs[1][2].strip().replace('"','')
-            zonelist.append(y)
+            sublist.append(y)
             sublist.append(t)
             
         print(securitygroup)
