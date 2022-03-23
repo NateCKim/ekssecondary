@@ -132,11 +132,18 @@ class MyMacro(Runnable):
             yaml.dump(yamlCfg, outfile, default_flow_style=False)
         
         cmd = ['kubectl', 'apply', '-f', '/data/dataiku/data.yml']
-        
+        logging.info("Run : %s" % json.dumps(cmd))
+        try:
+            out, err = run_with_timeout(cmd, env=env, timeout=20)
+            rv = 0
+        except KubeCommandException as e:
+            rv = e.rv
+            out = e.out
+            err = e.err
         ancmd = ['kubectl', 'set', 'env', 'daemonset', 'aws-node', '-n', 'kube-system', 'ENI_CONFIG_LABEL_DEF=failure-domain.beta.kubernetes.io/zone']
         logging.info("Run : %s" % json.dumps(ancmd))
         try:
-            out, err = run_with_timeout(command, env=env, timeout=20)
+            out, err = run_with_timeout(ancmd, env=env, timeout=20)
             rv = 0
         except KubeCommandException as e:
             rv = e.rv
