@@ -85,6 +85,7 @@ class MyMacro(Runnable):
             args = args + ['--subnet-ids', subnet]
             #args = args + ['| jq ".Subnets[].AvailabilityZone"']
             args = args + ['--query', 'Subnets[0].AvailabilityZone']
+            print(args)
             c = AwsCommand(args, connection_info)
             command_outputs.append(c.run())
             print(command_outputs[1][2])
