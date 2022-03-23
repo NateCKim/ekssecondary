@@ -78,6 +78,7 @@ class MyMacro(Runnable):
         securitygroup = self.config.get('securityGroup')
         
         print(listToString(s))
+        print(securitygroup)
         
 
         #getting AZ of the private subnet
