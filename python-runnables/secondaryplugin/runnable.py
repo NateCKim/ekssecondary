@@ -78,7 +78,6 @@ class MyMacro(Runnable):
         print(subnets)
         subdict = {}
         for subnet in subnets:
-            print(subnet)
             t = subdict
             t['enisub'] = subnet
             print(t)
