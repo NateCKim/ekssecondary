@@ -90,10 +90,10 @@ class MyMacro(Runnable):
             metadata:
               name: """ + "us-east-1a" + """
                 spec:
-              subnet: """ + Eniconfig.subnetId + """    #add multiple subnets 
+              subnet: """ + s + """    #add multiple subnets 
               securityGroups:
-              - """ + Eniconfig.securityGroupId)
+              - """ + "Eniconfig.securityGroupId")
             f.close()
         
-        result = subnets
-        return result.append
+        result = "success"
+        return result
