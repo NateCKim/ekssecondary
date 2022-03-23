@@ -122,7 +122,7 @@ class MyMacro(Runnable):
         
         cmd = ['kubectl', 'apply', '-f', '/data/dataiku/data.yml']
         
-        print (cmd + " success")
+        print ("success")
         
         #can get rid of it afterwards. Only used for testing syntax as successful return will not generate the output
         with open("test.yaml", "w") as f:
