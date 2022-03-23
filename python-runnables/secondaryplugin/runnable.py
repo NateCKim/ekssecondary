@@ -77,10 +77,9 @@ class MyMacro(Runnable):
         securitygroup = self.config.get('securityGroup')
         
         sublist = []
-        subdict = {}
         for subnet in subnets:
             print(subnet + " subtest")
-            t = subdict
+            t = {}
             t['enisub'] = subnet
             args = ['ec2', 'describe-subnets']
             args = args + ['--subnet-ids', subnet]
