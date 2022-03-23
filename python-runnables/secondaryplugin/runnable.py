@@ -92,7 +92,7 @@ class MyMacro(Runnable):
             print(command_outputs[1][2])
             y = subdict
             y['az'] = command_outputs[1][2].strip().replace('"','')
-        sublist.append(y)
+        sublist.append(t)
             
         print(sublist)
 
