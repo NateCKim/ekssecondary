@@ -78,6 +78,8 @@ class MyMacro(Runnable):
         
         sublist = []
         subdict = {}
+        zonelist = []
+        zonedict = {}
         for subnet in subnets:
             t = subdict
             t['enisub'] = subnet
@@ -88,9 +90,12 @@ class MyMacro(Runnable):
             c = AwsCommand(args, connection_info)
             command_outputs.append(c.run())
             print(command_outputs[1])
-            t['az'] = command_outputs[1][2].strip().replace('"','')
+            y = zonelist
+            y['az'] = command_outputs[1][2].strip().replace('"','')
         sublist.append(t)
+        zonelist.append(y)
         print(t)
+        print(y)
             
         #empty list 
 
