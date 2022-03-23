@@ -80,9 +80,9 @@ class MyMacro(Runnable):
         for subnet in subnets:
             t = subdict
             t['enisub'] = subnet
-            for each in t:
+            for each in subnet:
                 args = ['ec2', 'describe-subnets']
-                args = args + ['--subnet-ids' + each['enisub'] ]
+                args = args + ['--subnet-ids ' + each]
                 print(args)
             sublist.append(t)
             print(t)
