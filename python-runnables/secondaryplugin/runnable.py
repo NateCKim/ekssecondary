@@ -32,7 +32,6 @@ class MyMacro(Runnable):
             'kubeConfigPath']
         connection_info = dss_cluster_config.get('config', {}).get('connectionInfo', {})
         
-        print(connection_info)
         
         args = ['eks', 'update-kubeconfig']
         args = args + ['--name', str(self.config['clusterId'])]
@@ -42,7 +41,7 @@ class MyMacro(Runnable):
         elif 'AWS_DEFAULT_REGION' is os.environ:
             args = args + ['--region', os.environ['AWS_DEFAULT_REGION']]
 
-        c = AwsCommand(args, connection_info)
+        c = AwsCommand(str(args), connection_info)
         command_outputs.append(c.run())
 
         print(command_outputs)
