@@ -83,12 +83,13 @@ class MyMacro(Runnable):
         for subnet in subnets:
             t = subdict
             t['enisub'] = subnet
-            args = ['ec2', 'describe-subnets']
-            args = args + ['--subnet-ids', subnet]
+            for az in subnet:
+                args = ['ec2', 'describe-subnets']
+                args = args + ['--subnet-ids', az]
             #args = args + ['| jq ".Subnets[].AvailabilityZone"']
-            args = args + ['--query', 'Subnets[0].AvailabilityZone']
-            c = AwsCommand(args, connection_info)
-            command_outputs.append(c.run())
+                args = args + ['--query', 'Subnets[0].AvailabilityZone']
+                c = AwsCommand(args, connection_info)
+                command_outputs.append(c.run())
             t['az'] = command_outputs[1][2].strip().replace('"','')
             sublist.append(t)
         print(t)
