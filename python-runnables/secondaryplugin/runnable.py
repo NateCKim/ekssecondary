@@ -83,6 +83,7 @@ class MyMacro(Runnable):
             for each in t:
             args = ['ec2', 'describe-subnets']
             args = args + ['--subnet-ids' + t ]
+            print(args)
             sublist.append(t)
             print(t)
             
