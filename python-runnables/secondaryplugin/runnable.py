@@ -85,7 +85,7 @@ class MyMacro(Runnable):
             print(t)
             
         print(securitygroup)
-        
+        print(sublist)
 
         #getting AZ of the private subnet
         #CLI command to get a list of AZ based on subnetID (need JQ or Sed like command to filter it)
