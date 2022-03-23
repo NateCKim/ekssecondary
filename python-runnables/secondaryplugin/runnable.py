@@ -139,10 +139,5 @@ class MyMacro(Runnable):
               - """ + securitygroup)
             f.close()
         
-        
-        #add kubectl commands here
-        
-        
-        
         result = "success"
         return result
