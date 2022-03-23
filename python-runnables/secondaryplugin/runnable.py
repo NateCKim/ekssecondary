@@ -101,7 +101,7 @@ class MyMacro(Runnable):
             #if command_outputs[-1][1] != 0:
             #    print(command_outputs)
             
-            #sublist.append(t)
+            sublist.append(t)
             
         print(securitygroup)
         print(sublist)
