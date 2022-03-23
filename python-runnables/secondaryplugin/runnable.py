@@ -90,6 +90,7 @@ class MyMacro(Runnable):
             for az in command_outputs['Subnets']['AvailabilityZone']:
                 y = zonedict
                 y['azlist'] = az
+                print(y)
             if command_outputs[-1][1] != 0:
                 print(command_outputs)
             
