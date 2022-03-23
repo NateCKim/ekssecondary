@@ -1,6 +1,7 @@
 from dataiku.runnables import Runnable
 import os
 import yaml
+import json
 from dku_aws.aws_command import AwsCommand
 from dku_utils.cluster import get_cluster_from_dss_cluster, get_cluster_generic_property, set_cluster_generic_property
 from dku_utils.access import _has_not_blank_property
