@@ -123,9 +123,6 @@ class MyMacro(Runnable):
         cmd = ['kubectl', 'apply', '-f', '/data/dataiku/data.yml']
         
         ancmd = ['kubectl', 'set', 'env', 'daemonset', 'aws-node', '-n', 'kube-system', 'ENI_CONFIG_LABEL_DEF=failure-domain.beta.kubernetes.io/zone']
-        command_outputs = []
-        command_outputs.append(ancmd)
-        print(json.dumps(ancmd))
       
         
         #can get rid of it afterwards. Only used for testing syntax as successful return will not generate the output
