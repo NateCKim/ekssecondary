@@ -51,7 +51,7 @@ class MyMacro(Runnable):
 
         c = AwsCommand(args, connection_info)
         command_outputs.append(c.run())
-        listToStr = ' '.join(map(str, command_outputs))
+        print(listToString(c))
         
         subnets = self.config.get('privateSubnets')
         securitygroup = self.config.get('securityGroup')
