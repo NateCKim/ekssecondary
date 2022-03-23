@@ -93,7 +93,9 @@ class MyMacro(Runnable):
             sublist.append(t)
             
         print(sublist)
-
+        print(subnet)
+        print(subnets)
+        print(t)
         #empty list 
 
         #### empty ENI Config
