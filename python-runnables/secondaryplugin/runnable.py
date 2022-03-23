@@ -115,6 +115,7 @@ class MyMacro(Runnable):
             eniCfg['spec']['subnet'] = zone['enisub']
             #print(eniCfg)
             yamlCfg += yaml.dump(eniCfg)
+            yamlCfg += '---' + '\n'
 
         print(yamlCfg)
         
