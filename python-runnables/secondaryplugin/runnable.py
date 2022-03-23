@@ -75,12 +75,12 @@ class MyMacro(Runnable):
         command = ['kubectl', 'set', 'env', 'daemonset', 'aws-node', '-n', 'kube-system', 'AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG=true']
         logging.info("Run : %s" % json.dumps(command))
         try:
-        out, err = run_with_timeout(command, env=env, timeout=20)
-        rv = 0
+            out, err = run_with_timeout(command, env=env, timeout=20)
+            rv = 0
         except KubeCommandException as e:
-        rv = e.rv
-        out = e.out
-        err = e.err
+            rv = e.rv
+            out = e.out
+            err = e.err
         
         #getting the list of subnets and AZs associated with it. Creating a Dict to pass it to ENIConfig template
         subnets = self.config.get('privateSubnets')
