@@ -117,7 +117,7 @@ class MyMacro(Runnable):
             yamlCfg += yaml.dump(eniCfg)
             yamlCfg += '---' + '\n'
 
-        with open('data.yml', 'w') as outfile:
+        with open('/dataiku/data.yml', 'w') as outfile:
             yaml.dump(yamlCfg, outfile, default_flow_style=False)
         
         print("sucess")
