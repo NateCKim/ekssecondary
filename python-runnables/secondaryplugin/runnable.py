@@ -72,7 +72,8 @@ class MyMacro(Runnable):
             return make_html(command_outputs)
         print(command_outputs)
         
-        command = ['kubectl', 'set', 'env', 'daemonset', 'aws-node', '-n', 'kube-system', 'AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG=true'] 
+        command = ['kubectl', 'set', 'env', 'daemonset', 'aws-node', '-n', 'kube-system', 'AWS_VPC_K8S_CNI_CUSTOM_NETWORK_CFG=true']
+        print(command)
         
         #getting the list of subnets and AZs associated with it. Creating a Dict to pass it to ENIConfig template
         subnets = self.config.get('privateSubnets')
