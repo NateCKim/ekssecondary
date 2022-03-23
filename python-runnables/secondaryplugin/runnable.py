@@ -120,6 +120,8 @@ class MyMacro(Runnable):
         with open('data.yml', 'w') as outfile:
             yaml.dump(yamlCfg, outfile, default_flow_style=False)
         
+        print("sucess")
+        
         with open("test.yaml", "w") as f:
             f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
             kind: ENIConfig
