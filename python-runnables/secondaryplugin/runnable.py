@@ -88,7 +88,7 @@ class MyMacro(Runnable):
             q = AwsCommand(args, connection_info)
             command_outputs.append(q.run())
             y = zonedict
-            y['azlist'] = command_outputs['Subnets']['AvailabilityZone']
+            y['azlist'] = int(command_outputs['Subnets']['AvailabilityZone'])
             zonelist.append(y)
             print(zonelist)
             #for az in command_outputs['Subnets']['AvailabilityZone']:
