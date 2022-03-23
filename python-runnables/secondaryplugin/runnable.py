@@ -91,7 +91,7 @@ class MyMacro(Runnable):
                 spec:
               subnet: """ + str(s[0]) + """    #add multiple subnets 
               securityGroups:
-              - """ + "Eniconfig.securityGroupId")
+              - """ + str(securitygroup))
             f.close()
         
         result = "success"
