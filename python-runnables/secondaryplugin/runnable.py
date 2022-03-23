@@ -84,7 +84,7 @@ class MyMacro(Runnable):
             t = subdict
             t['enisub'] = subnet
             args = ['ec2', 'describe-subnets']
-            args = args + ['--subnet-ids', subnet]
+            args = args + ['--subnet-ids', t['enisub']]
             #args = args + ['| jq ".Subnets[].AvailabilityZone"']
             args = args + ['--query', 'Subnets[0].AvailabilityZone']
             c = AwsCommand(args, connection_info)
