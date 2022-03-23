@@ -108,12 +108,12 @@ class MyMacro(Runnable):
                     }
             }
         yamlCfg = ""
-        for zone in eni:
+        for zone in sublist:
             eniCfg = d
-            eniCfg['metadata']['name'] = y['az']
+            eniCfg['metadata']['name'] = zone['az']
             eniCfg['spec']['securityGroups'] = []
             eniCfg['spec']['securityGroups'].append(securitygroup)
-            eniCfg['spec']['subnet'] = t['enisub']
+            eniCfg['spec']['subnet'] = zone['enisub']
             #print(eniCfg)
             yamlCfg += yaml.dump(eniCfg)
             print(yamlCfg)
