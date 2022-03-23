@@ -32,9 +32,9 @@ class MyMacro(Runnable):
             'kubeConfigPath']
         connection_info = dss_cluster_config.get('config', {}).get('connectionInfo', {})
         
-        args = "eks update-kubeconfig --name" + str(self.config['clusterId'])
-       # args = ['eks', 'update-kubeconfig']
-        #args = args + ['--name', str(self.config['clusterId'])]
+
+        args = ['eks', 'update-kubeconfig']
+        args = args + ['--name', str(self.config['clusterId'])]
 
         if _has_not_blank_property(connection_info, 'region'):
             args = args + ['--region', connection_info['region']]
@@ -43,8 +43,6 @@ class MyMacro(Runnable):
 
         c = AwsCommand(args, connection_info)
         command_outputs.append(c.run())
-
-        print(command_outputs)
         
         subnets = self.config.get('privateSubnets')
         securitygroup = self.config.get('securityGroup')
