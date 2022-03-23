@@ -75,16 +75,16 @@ class MyMacro(Runnable):
         #CLI command to get a list of AZ based on subnetID (need JQ or Sed like command to filter it)
 
         
-  #      with open("test.yaml", "w") as f:
- #           f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
- #           kind: ENIConfig
-  #          metadata:
-   #           name: """ + subnets + """
-    #            spec:
-     #         subnet: """ + Eniconfig.subnetId + """    #add multiple subnets 
-      #        securityGroups:
-       #       - """ + Eniconfig.securityGroupId)
-        #    f.close()
+        with open("test.yaml", "w") as f:
+            f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
+            kind: ENIConfig
+            metadata:
+              name: """ + subnets + """
+                spec:
+              subnet: """ + Eniconfig.subnetId + """    #add multiple subnets 
+              securityGroups:
+              - """ + Eniconfig.securityGroupId)
+            f.close()
         
-        #result = subnets
-        #return result
+        result = subnets
+        return result
