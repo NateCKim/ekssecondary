@@ -89,9 +89,9 @@ class MyMacro(Runnable):
             args = args + ['--query', 'Subnets[0].AvailabilityZone']
             q = AwsCommand(args, connection_info)
             command_outputs.append(q.run())
-            y = subdict
-        y['az'] = command_outputs[1][2].strip().replace('"','')
-        sublist.append(y)
+            t = subdict
+        t['az'] = command_outputs[1][2].strip().replace('"','')
+        sublist.append(t)
             
         print(sublist)
 
