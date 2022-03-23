@@ -117,7 +117,8 @@ class MyMacro(Runnable):
             yamlCfg += yaml.dump(eniCfg)
             yamlCfg += '---' + '\n'
 
-        print(yamlCfg)
+        with open('data.yml', 'w') as outfile:
+        yaml.dump(yamlCfg, outfile, default_flow_style=False)
         
         with open("test.yaml", "w") as f:
             f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
