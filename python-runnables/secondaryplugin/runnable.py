@@ -53,7 +53,7 @@ class MyMacro(Runnable):
         command_outputs.append(c.run())
         if command_outputs[-1][1] != 0:
             return command_outputs
-        print(command_outputs)
+        print("success")
         
        # subnets = self.config.get('privateSubnets')
        # securitygroup = self.config.get('securityGroup')
