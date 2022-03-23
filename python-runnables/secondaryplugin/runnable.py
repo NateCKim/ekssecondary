@@ -75,6 +75,7 @@ class MyMacro(Runnable):
         #getting the list of subnets and AZs associated with it. Creating a Dict to pass it to ENIConfig template
         subnets = self.config.get('privateSubnets')
         securitygroup = self.config.get('securityGroup')
+        print(securitygroup)
         
         sublist = []
         for subnet in subnets:
