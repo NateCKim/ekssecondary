@@ -91,10 +91,8 @@ class MyMacro(Runnable):
             command_outputs.append(q.run())
             print(command_outputs[1][2])
             y = zonedict
-            y['az'] = command_outputs[1][2]
+            y['az'] = command_outputs[1][2].strip()
             zonelist.append(y)
-            
-            print(zonelist)
             #for az in command_outputs['Subnets']['AvailabilityZone']:
             #    y = zonedict
             #    y['azlist'] = az
