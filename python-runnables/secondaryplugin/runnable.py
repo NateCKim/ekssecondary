@@ -7,6 +7,22 @@ from dku_utils.access import _has_not_blank_property
 from dku_kube.kubectl_command import run_with_timeout, KubeCommandException
 from dku_utils.access import _has_not_blank_property, _is_none_or_blank
 
+def make_html(command_outputs):
+    divs = []
+    for command_output in command_outputs:
+        cmd_html = '<div>Run: %s</div>' % json.dumps(command_output[0])
+        rv_html = '<div>Returned %s</div>' % command_output[1]
+        out_html = '<div class="alert alert-info"><div>Output</div><pre class="debug" style="max-width: 100%%; max-height: 100%%;">%s</pre></div>' % command_output[2]
+        err_html = '<div class="alert alert-danger"><div>Error</div><pre class="debug" style="max-width: 100%%; max-height: 100%%;">%s</pre></div>' % command_output[3]
+        divs.append(cmd_html)
+        divs.append(rv_html)
+        divs.append(out_html)
+        if command_output[1] != 0 and not _is_none_or_blank(command_output[3]):
+            divs.append(err_html)
+    return '\n'.join(divs).decode('utf8')
+
+
+
 class MyMacro(Runnable):
     def __init__(self, project_key, config, plugin_config):
         self.project_key = project_key
@@ -52,9 +68,9 @@ class MyMacro(Runnable):
         c = AwsCommand(args, connection_info)
         command_outputs.append(c.run())
         if command_outputs[-1][1] != 0:
-            return command_outputs
+            return make_html(command_outputs)
         
-        print("success")
+
         
        # subnets = self.config.get('privateSubnets')
        # securitygroup = self.config.get('securityGroup')
