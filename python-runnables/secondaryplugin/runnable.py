@@ -75,7 +75,7 @@ class MyMacro(Runnable):
         subnets = self.config.get('privateSubnets')
         securitygroup = self.config.get('securityGroup')
         
-        print(subnet)
+        print(subnets)
         print(securitygroup)
         
 
