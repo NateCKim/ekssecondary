@@ -28,14 +28,7 @@ class MyMacro(Runnable):
         self.project_key = project_key
         self.config = config
 
-        
-    def listToString(c): 
-    
-        # initialize an empty string
-        str1 = " " 
-    
-        # return string  
-        return (str1.join(c))
+      
 
     def get_progress_target(self):
         return None
@@ -67,6 +60,7 @@ class MyMacro(Runnable):
 
         c = AwsCommand(args, connection_info)
         command_outputs.append(c.run())
+        print("worked")
         if command_outputs[-1][1] != 0:
             return make_html(command_outputs)
         
