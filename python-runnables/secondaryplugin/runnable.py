@@ -41,7 +41,7 @@ class MyMacro(Runnable):
         connection_info = dss_cluster_config.get('config', {}).get('connectionInfo', {})
         
 
-        args = ['eks', 'update-kubeconfig']
+        args = ['aws', 'eks', 'update-kubeconfig']
         args = args + ['--name', str(self.config['clusterId'])]
 
         if _has_not_blank_property(connection_info, 'region'):
