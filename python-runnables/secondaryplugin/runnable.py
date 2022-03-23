@@ -78,7 +78,6 @@ class MyMacro(Runnable):
         
         sublist = []
         for subnet in subnets:
-            print(subnet + " subtest")
             t = {}
             t['enisub'] = subnet
             args = None
@@ -86,9 +85,9 @@ class MyMacro(Runnable):
             args = args + ['--subnet-ids', subnet]
             #args = args + ['| jq ".Subnets[].AvailabilityZone"']
             args = args + ['--query', 'Subnets[0].AvailabilityZone']
-            print(args)
             c = None
             c = AwsCommand(args, connection_info)
+            command_outputs = []
             command_outputs.append(c.run())
             print(command_outputs[1][2])
             t['az'] = command_outputs[1][2].strip().replace('"','')
