@@ -79,10 +79,12 @@ class MyMacro(Runnable):
         for subnet in subnets:
             t = subdict
             t['enisub'] = subnet
-            for each in subnets:
-                args = ['ec2', 'describe-subnets']
-                args = args + ['--subnet-ids ' + each]
-                print(args)
+            args = ['ec2', 'describe-subnets']
+            args = args + ['--subnet-ids ' + subnet]
+            #for each in subnets:
+             #   args = ['ec2', 'describe-subnets']
+              #  args = args + ['--subnet-ids ' + each]
+               # print(args)
             sublist.append(t)
             
         print(securitygroup)
