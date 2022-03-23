@@ -111,28 +111,27 @@ class MyMacro(Runnable):
         yamlCfg = ""
         for zone in eni:
             eniCfg = d
-            eniCfg['metadata']['name'] = zone['az']
+            eniCfg['metadata']['name'] = y['az']
             eniCfg['spec']['securityGroups'] = []
-            eniCfg['spec']['securityGroups'].append("test")
-            eniCfg['spec']['subnet'] = zone['sub']
+            eniCfg['spec']['securityGroups'].append(securitygroup)
+            eniCfg['spec']['subnet'] = t['enisub']
             #print(eniCfg)
-            #print(zone['az'])
             yamlCfg += yaml.dump(eniCfg)
             if 
             yamlCfg += '---' + '\n'
 
         print(yamlCfg)
         
-        with open("test.yaml", "w") as f:
-            f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
-            kind: ENIConfig
-            metadata:
-              name: """ + "us-east-1a" + """
-                spec:
-              subnet: """ + str(s[0]) + """    #add multiple subnets 
-              securityGroups:
-              - """ + securitygroup)
-            f.close()
+        #with open("test.yaml", "w") as f:
+        #    f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
+        #    kind: ENIConfig
+        #    metadata:
+        #      name: """ + "us-east-1a" + """
+        #        spec:
+        #      subnet: """ + str(s[0]) + """    #add multiple subnets 
+        #      securityGroups:
+        #      - """ + securitygroup)
+        #    f.close()
         
         result = "success"
         return result
