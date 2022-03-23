@@ -77,17 +77,23 @@ class MyMacro(Runnable):
         
         sublist = []
         subdict = {}
+        zonelist = []
+        zonedict = {}
         for subnet in subnets:
             t = subdict
             t['enisub'] = subnet
             vpc_subnet = ec2.describe_subnets()
-            args = ['ec2', 'describe-subnets']
-            args = args + ['--subnet-ids', subnet]
-            args = args + ['| jq ".Subnets[].AvailabilityZone"']
-            q = AwsCommand(args, connection_info)
-            command_outputs.append(q.run())
-            if command_outputs[-1][1] != 0:
-                print(command_outputs)
+            for az in vpc_subnet['Subnets']['AvailabilityZone']
+                d = zonelist
+                d['azsub'] = vpc_subnet
+                print(d)
+            #args = ['ec2', 'describe-subnets']
+            #args = args + ['--subnet-ids', subnet]
+            #args = args + ['| jq ".Subnets[].AvailabilityZone"']
+            #q = AwsCommand(args, connection_info)
+            #command_outputs.append(q.run())
+            #if command_outputs[-1][1] != 0:
+            #    print(command_outputs)
             
             sublist.append(t)
             
