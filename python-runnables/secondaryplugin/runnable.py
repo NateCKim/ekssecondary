@@ -121,7 +121,8 @@ class MyMacro(Runnable):
             yaml.dump(yamlCfg, outfile, default_flow_style=False)
         
         cmd = ['kubectl', 'apply', '-f', '/data/dataiku/data.yml']
-        
+        command_outputs = []
+        command_outputs.append(cmd)
         print ("success")
         
         #can get rid of it afterwards. Only used for testing syntax as successful return will not generate the output
