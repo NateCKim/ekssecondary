@@ -90,7 +90,7 @@ class MyMacro(Runnable):
             c = AwsCommand(args, connection_info)
             command_outputs.append(c.run())
             print(command_outputs[1])
-            y = zonelist
+            y = zonedict
             y['az'] = command_outputs[1][2].strip().replace('"','')
         sublist.append(t)
         zonelist.append(y)
