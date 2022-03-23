@@ -76,11 +76,14 @@ class MyMacro(Runnable):
         securitygroup = self.config.get('securityGroup')
         
         print(subnets)
+        sublist = []
         subdict = {}
         for subnet in subnets:
             t = subdict
             t['enisub'] = subnet
+            sublist.append(t)
             print(t)
+            
         print(securitygroup)
         
 
