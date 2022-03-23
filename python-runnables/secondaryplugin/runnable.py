@@ -90,7 +90,7 @@ class MyMacro(Runnable):
             q = AwsCommand(args, connection_info)
             command_outputs.append(q.run())
             t['az'] = command_outputs[1][2].strip().replace('"','')
-        sublist.append(t)
+            sublist.append(t)
             
         print(sublist)
 
