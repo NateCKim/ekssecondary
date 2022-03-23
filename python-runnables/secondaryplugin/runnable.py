@@ -116,7 +116,7 @@ class MyMacro(Runnable):
             eniCfg['spec']['subnet'] = zone['enisub']
             #print(eniCfg)
             yamlCfg += yaml.dump(eniCfg)
-            print(yamlCfg)
+
         print(yamlCfg)
         
         with open("test.yaml", "w") as f:
@@ -130,5 +130,5 @@ class MyMacro(Runnable):
         #      - """ + securitygroup)
         #    f.close()
         
-        result = "success"
+        result = yamlCfg
         return result
