@@ -74,7 +74,6 @@ class MyMacro(Runnable):
         subnets = self.config.get('privateSubnets')
         securitygroup = self.config.get('securityGroup')
         
-        print(subnets)
         sublist = []
         subdict = {}
         for subnet in subnets:
