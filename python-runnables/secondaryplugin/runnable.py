@@ -92,7 +92,7 @@ class MyMacro(Runnable):
                 spec:
               subnet: """ + str(s[0]) + """    #add multiple subnets 
               securityGroups:
-              - """ + str(securitygroup))
+              - """ + securitygroup)
             f.close()
         
         result = "success"
