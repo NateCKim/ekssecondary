@@ -110,6 +110,7 @@ class MyMacro(Runnable):
             eniCfg = d
             eniCfg['metadata']['name'] = zone['az']
             eniCfg['spec']['securityGroups'] = []
+            print(securitygroup + " sgtest")
             eniCfg['spec']['securityGroups'].append(securitygroup)
             eniCfg['spec']['subnet'] = zone['enisub']
             #print(eniCfg)
