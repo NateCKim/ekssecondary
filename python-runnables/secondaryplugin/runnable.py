@@ -110,8 +110,8 @@ class MyMacro(Runnable):
             eniCfg = d
             eniCfg['metadata']['name'] = zone['az']
             eniCfg['spec']['securityGroups'] = []
-            print(securitygroup + " sgtest")
-            eniCfg['spec']['securityGroups'].append(securitygroup)
+            for sg in securitygroup:
+                eniCfg['spec']['securityGroups'].append(sg)
             eniCfg['spec']['subnet'] = zone['enisub']
             #print(eniCfg)
             yamlCfg += yaml.dump(eniCfg)
