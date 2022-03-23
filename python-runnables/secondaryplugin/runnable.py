@@ -81,6 +81,7 @@ class MyMacro(Runnable):
             print(subnet)
             t = subdict
             t['enisub'] = subnet
+            print(t)
         print(securitygroup)
         
 
