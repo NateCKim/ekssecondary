@@ -95,7 +95,6 @@ class MyMacro(Runnable):
             sublist.append(y)
             sublist.append(t)
             
-        print(securitygroup)
         print(sublist)
 
         #empty list 
@@ -127,8 +126,8 @@ class MyMacro(Runnable):
         #        spec:
             subnet: """ + str(s[0]) + """    #add multiple subnets 
         #      securityGroups:
-        #      - """ + securitygroup)
-        #    f.close()
+              -  + s)
+            f.close()
         
         result = yamlCfg
         return result
