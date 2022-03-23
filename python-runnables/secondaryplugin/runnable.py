@@ -81,8 +81,6 @@ class MyMacro(Runnable):
         for subnet in subnets:
             t = subdict
             t['enisub'] = subnet
-            sublist.append(t)
-            print(t)
             args = ['ec2', 'describe-subnets']
             args = args + ['--subnet-ids', subnet]
             #args = args + ['| jq ".Subnets[].AvailabilityZone"']
@@ -91,7 +89,7 @@ class MyMacro(Runnable):
             command_outputs.append(c.run())
             print(command_outputs[1][2])
             t['az'] = command_outputs[1][2].strip().replace('"','')
-            sublist.append(t)
+            print(t)
         print(t)
 
             
