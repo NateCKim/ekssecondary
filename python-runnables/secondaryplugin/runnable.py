@@ -93,10 +93,6 @@ class MyMacro(Runnable):
             print(t['az'])
             sublist.append(t)
             
-        print(sublist)
-        print(subnet)
-        print(subnets)
-        print(t)
         #empty list 
 
         #### empty ENI Config
