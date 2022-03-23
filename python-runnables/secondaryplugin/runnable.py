@@ -79,7 +79,7 @@ class MyMacro(Runnable):
         sublist = []
         subdict = {}
         for subnet in subnets:
-            print(subnet)
+            print(subnet + " subtest")
             t = subdict
             t['enisub'] = subnet
             args = ['ec2', 'describe-subnets']
