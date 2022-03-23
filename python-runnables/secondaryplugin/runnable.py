@@ -80,15 +80,12 @@ class MyMacro(Runnable):
             t = subdict
             t['enisub'] = subnet
             args = ['ec2', 'describe-subnets']
-            args = args + ['--subnet-ids', subnet]
+            args = args + ['--subnet-ids', subnet, '| jq .Subnets[] | .AvailabilityZone']
             q = AwsCommand(args, connection_info)
             command_outputs.append(q.run())
             if command_outputs[-1][1] != 0:
                 print(command_outputs)
-            #for each in subnets:
-             #   args = ['ec2', 'describe-subnets']
-              #  args = args + ['--subnet-ids ' + each]
-               # print(args)
+            
             sublist.append(t)
             
         print(securitygroup)
