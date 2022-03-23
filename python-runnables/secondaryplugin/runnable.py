@@ -99,7 +99,6 @@ class MyMacro(Runnable):
         print(sublist)
 
         #empty list 
-        eni = [{'az':'us-east-2a','sub':'subnet-0e4d5de3b9776a685'},{'az':'us-east-2c','sub':'subnet-08b1f74fe7d9adfd4'}]
 
         #### empty ENI Config
         d = {'apiVersion':'crd.k8s.amazonaws.com/v1alpha1',
@@ -120,13 +119,13 @@ class MyMacro(Runnable):
             print(yamlCfg)
         print(yamlCfg)
         
-        #with open("test.yaml", "w") as f:
+        with open("test.yaml", "w") as f:
         #    f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
         #    kind: ENIConfig
         #    metadata:
         #      name: """ + "us-east-1a" + """
         #        spec:
-              subnet: """ + str(s[0]) + """    #add multiple subnets 
+            subnet: """ + str(s[0]) + """    #add multiple subnets 
         #      securityGroups:
         #      - """ + securitygroup)
         #    f.close()
