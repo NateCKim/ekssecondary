@@ -92,8 +92,8 @@ class MyMacro(Runnable):
             #    y = zonedict
             #    y['azlist'] = az
             #    print(y)
-            if command_outputs[-1][1] != 0:
-                print(command_outputs)
+            #if command_outputs[-1][1] != 0:
+            #    print(command_outputs)
             
             sublist.append(t)
             
