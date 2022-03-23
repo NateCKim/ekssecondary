@@ -125,8 +125,8 @@ class MyMacro(Runnable):
         #      name: """ + "us-east-1a" + """
         #        spec:
             subnet: """ + str(s[0]) + """    #add multiple subnets 
-        #      securityGroups:
-              -  + s)
+            securityGroups:
+                -  + s)
             f.close()
         
         result = yamlCfg
