@@ -21,13 +21,13 @@ def make_html(command_outputs):
             divs.append(err_html)
     return '\n'.join(divs).decode('utf8')
 
-def listToString(s): 
+def listToString(subnets, securitygroup): 
     
     # initialize an empty string
     str1 = " " 
     
     # return string  
-    return (str1.join(s))
+    return (str1.join(subnets, securitygroup))
 
 class MyMacro(Runnable):
     def __init__(self, project_key, config, plugin_config):
