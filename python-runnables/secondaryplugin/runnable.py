@@ -87,4 +87,4 @@ class MyMacro(Runnable):
             f.close()
         
         result = subnets
-        return result
+        return make_html(command_outputs)
