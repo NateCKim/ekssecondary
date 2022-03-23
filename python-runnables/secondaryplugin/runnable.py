@@ -78,8 +78,6 @@ class MyMacro(Runnable):
         
         sublist = []
         subdict = {}
-        zonelist = []
-        zonedict = {}
         for subnet in subnets:
             t = subdict
             t['enisub'] = subnet
