@@ -68,6 +68,8 @@ class MyMacro(Runnable):
         
         subnets = self.config.get('privateSubnets')
         securitygroup = self.config.get('securityGroup')
+        
+        print(subnets)
         #getting AZ of the private subnet
         #CLI command to get a list of AZ based on subnetID (need JQ or Sed like command to filter it)
 
