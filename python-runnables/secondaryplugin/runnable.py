@@ -90,7 +90,7 @@ class MyMacro(Runnable):
             print(command_outputs[1][2])
             t['az'] = command_outputs[1][2].strip().replace('"','')
             print(t)
-        print(t)
+
 
             
         #empty list 
