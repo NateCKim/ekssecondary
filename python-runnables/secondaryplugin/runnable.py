@@ -76,13 +76,15 @@ class MyMacro(Runnable):
         securitygroup = self.config.get('securityGroup')
         
         print(subnets)
+        for subnet in subnets:
+            print(subnet)
         print(securitygroup)
         
 
         #getting AZ of the private subnet
         #CLI command to get a list of AZ based on subnetID (need JQ or Sed like command to filter it)
         #empty list 
-
+        
         
         with open("test.yaml", "w") as f:
             f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
