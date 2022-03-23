@@ -80,7 +80,7 @@ class MyMacro(Runnable):
             t = subdict
             t['enisub'] = subnet
             args = ['ec2', 'describe-subnets']
-            args = args + ['--subnet-ids ', + subnet]
+            args = args + ['--subnet-ids ', subnet]
             q = AwsCommand(args, connection_info)
             command_outputs.append(q.run())
             if command_outputs[-1][1] != 0:
