@@ -41,7 +41,7 @@ class MyMacro(Runnable):
         connection_info = dss_cluster_config.get('config', {}).get('connectionInfo', {})
         
 
-        args = ['aws', 'eks', 'update-kubeconfig']
+        args = ['eks', 'update-kubeconfig']
         args = args + ['--name', str(self.config['clusterId'])]
 
         if _has_not_blank_property(connection_info, 'region'):
@@ -50,7 +50,7 @@ class MyMacro(Runnable):
             args = args + ['--region', os.environ['AWS_DEFAULT_REGION']]
 
         c = AwsCommand(args, connection_info)
-        command_outputs.append(c.run_and_get_output())
+        command_outputs.append(c.run())
 
         
         subnets = self.config.get('privateSubnets')
