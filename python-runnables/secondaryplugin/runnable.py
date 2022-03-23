@@ -80,6 +80,7 @@ class MyMacro(Runnable):
         for subnet in subnets:
             t = subdict
             t['enisub'] = subnet
+            vpc_subnet = ec2.describe_subnets()
             args = ['ec2', 'describe-subnets']
             args = args + ['--subnet-ids', subnet]
             args = args + ['| jq ".Subnets[].AvailabilityZone"']
