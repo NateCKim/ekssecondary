@@ -83,7 +83,7 @@ class MyMacro(Runnable):
             t = subdict
             t['enisub'] = subnet
             vpc_subnet = ec2.describe_subnets()
-            for az in vpc_subnet['Subnets']['AvailabilityZone']
+            for az in vpc_subnet['Subnets']['AvailabilityZone']:
                 d = zonelist
                 d['azsub'] = vpc_subnet
                 print(d)
