@@ -72,7 +72,7 @@ class MyMacro(Runnable):
             return make_html(command_outputs)
         print(command_outputs)
         
-        #getting the list of subnets and a securitygroup
+        #getting the list of subnets and AZs associated with it. Creating a Dict to pass it to ENIConfig template
         subnets = self.config.get('privateSubnets')
         securitygroup = self.config.get('securityGroup')
         
@@ -98,13 +98,30 @@ class MyMacro(Runnable):
         print(securitygroup)
         print(sublist)
 
-        #getting AZ of the private subnets
-        
-        args = ['ec2', 'describe-subnets']
-        #for 
-        #args = args + ['--subnet-ids']
-        #CLI command to get a list of AZ based on subnetID (need JQ or Sed like command to filter it)
         #empty list 
+        eni = [{'az':'us-east-2a','sub':'subnet-0e4d5de3b9776a685'},{'az':'us-east-2c','sub':'subnet-08b1f74fe7d9adfd4'}]
+
+        #### empty ENI Config
+        d = {'apiVersion':'crd.k8s.amazonaws.com/v1alpha1',
+                     'kind':'ENIConfig',
+                     'metadata':{'name':''},
+                     'spec':{     
+                    }
+            }
+        yamlCfg = ""
+        for zone in eni:
+            eniCfg = d
+            eniCfg['metadata']['name'] = zone['az']
+            eniCfg['spec']['securityGroups'] = []
+            eniCfg['spec']['securityGroups'].append("test")
+            eniCfg['spec']['subnet'] = zone['sub']
+            #print(eniCfg)
+            #print(zone['az'])
+            yamlCfg += yaml.dump(eniCfg)
+            if 
+            yamlCfg += '---' + '\n'
+
+        print(yamlCfg)
         
         with open("test.yaml", "w") as f:
             f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
