@@ -87,10 +87,7 @@ class MyMacro(Runnable):
             #args = args + ['| jq ".Subnets[].AvailabilityZone"']
             q = AwsCommand(args, connection_info)
             command_outputs.append(q.run())
-            for az in q:
-                y = zonedict
-                y['azlist'] = az
-                print(y)
+            print(q)
             if command_outputs[-1][1] != 0:
                 print(command_outputs)
             
