@@ -78,6 +78,7 @@ class MyMacro(Runnable):
         
         sublist = []
         subdict = {}
+        print(subnets)
         for subnet in subnets:
             t = subdict
             t['enisub'] = subnet
@@ -124,6 +125,11 @@ class MyMacro(Runnable):
               securityGroups:
               - """ + securitygroup)
             f.close()
+        
+        
+        #add kubectl commands here
+        
+        
         
         result = "success"
         return result
