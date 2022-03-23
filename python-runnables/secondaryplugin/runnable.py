@@ -90,6 +90,11 @@ class MyMacro(Runnable):
             q = AwsCommand(args, connection_info)
             command_outputs.append(q.run())
             print(command_outputs[1][2])
+            y = zonedict
+            y['az'] = command_outputs[1][2]
+            zonelist.append(y)
+            
+            print(zonelist)
             #for az in command_outputs['Subnets']['AvailabilityZone']:
             #    y = zonedict
             #    y['azlist'] = az
