@@ -95,6 +95,7 @@ class MyMacro(Runnable):
             sublist.append(y)
             sublist.append(t)
             
+        print(securitygroup)
         print(sublist)
 
         #empty list 
@@ -119,15 +120,15 @@ class MyMacro(Runnable):
         print(yamlCfg)
         
         with open("test.yaml", "w") as f:
-        #    f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
-        #    kind: ENIConfig
-        #    metadata:
-        #      name: """ + "us-east-1a" + """
-        #        spec:
+            f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
+            kind: ENIConfig
+            metadata:
+              name: """ + "us-east-1a" + """
+                spec:
             subnet: """ + str(s[0]) + """    #add multiple subnets 
-            securityGroups:
-                -  + s)
+              securityGroups:
+              - """ + securitygroup)
             f.close()
         
-        result = yamlCfg
+        result = "success"
         return result
