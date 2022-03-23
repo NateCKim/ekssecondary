@@ -70,6 +70,7 @@ class MyMacro(Runnable):
         command_outputs.append(c.run())
         if command_outputs[-1][1] != 0:
             return make_html(command_outputs)
+        print(command_outputs)
         
         #getting the list of subnets and a securitygroup
         subnets = self.config.get('privateSubnets')
