@@ -120,6 +120,7 @@ class MyMacro(Runnable):
         with open('/data/dataiku/data.yml', 'w') as outfile:
             yaml.dump(yamlCfg, outfile, default_flow_style=False)
         
+        cmd = ['kubectl', 'apply', '-f', '/data/dataiku/data.yml']
         
         #can get rid of it afterwards. Only used for testing syntax as successful return will not generate the output
         with open("test.yaml", "w") as f:
