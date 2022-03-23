@@ -21,7 +21,13 @@ def make_html(command_outputs):
             divs.append(err_html)
     return '\n'.join(divs).decode('utf8')
 
-
+def listToString(s): 
+    
+    # initialize an empty string
+    str1 = " " 
+    
+    # return string  
+    return (str1.join(s))
 
 class MyMacro(Runnable):
     def __init__(self, project_key, config, plugin_config):
@@ -79,7 +85,7 @@ class MyMacro(Runnable):
             f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
             kind: ENIConfig
             metadata:
-              name: """ + subnets + """
+              name: """ + "us-east-1a" + """
                 spec:
               subnet: """ + Eniconfig.subnetId + """    #add multiple subnets 
               securityGroups:
