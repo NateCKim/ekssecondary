@@ -81,6 +81,7 @@ class MyMacro(Runnable):
             print(subnet + " subtest")
             t = {}
             t['enisub'] = subnet
+            args = None
             args = ['ec2', 'describe-subnets']
             args = args + ['--subnet-ids', subnet]
             #args = args + ['| jq ".Subnets[].AvailabilityZone"']
