@@ -89,7 +89,7 @@ class MyMacro(Runnable):
             metadata:
               name: """ + "us-east-1a" + """
                 spec:
-              subnet: """ + s + """    #add multiple subnets 
+              subnet: """ + "subnet" + """    #add multiple subnets 
               securityGroups:
               - """ + "Eniconfig.securityGroupId")
             f.close()
