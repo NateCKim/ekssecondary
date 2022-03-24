@@ -150,6 +150,11 @@ class MyMacro(Runnable):
             out = e.out
             err = e.err
         
+        #pass in self.config to get nodegroup. Set the Desire (if desire is > 0 scale to 0 )
+        aws ec2 terminate-instances --instance-ids $(aws ec2 describe-instances --query 'Reservations[].Instances[].InstanceId' --filters "Name=tag:tagkey,Values=tagvalue" --output text)
+        
+        
+        
         #can get rid of it afterwards. Only used for testing syntax as successful return will not generate the output
         with open("test.yaml", "w") as f:
             f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
