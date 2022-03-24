@@ -43,6 +43,8 @@ class MyMacro(Runnable):
 
     def run(self, progress_callback):
         cluster_data, dss_cluster_settings, dss_cluster_config = get_cluster_from_dss_cluster(self.config['clusterId'])
+        
+        print(self.config['clusterId'])
 
         command_outputs = []
             
