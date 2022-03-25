@@ -145,12 +145,12 @@ class MyMacro(Runnable):
         print(command_outputs)
    
         r = {}
-        r['list'] = command_outputs[0][2].strip().replace('"','').replace(' ','')
+        r['list'] = command_outputs[0][2].strip().replace('"','').replace(' ','').replace('\n','')
         print(r)
 
         for kk in r['list']:
             args = []
-            args = ['ec2', 'terminate-instances', '--instance-ids', str(kk.split(' '))]
+            args = ['ec2', 'terminate-instances', '--instance-ids', kk]
             c = None
             c = AwsCommand(args, connection_info)
             command_outputs = []
