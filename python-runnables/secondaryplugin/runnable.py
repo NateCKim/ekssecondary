@@ -134,12 +134,13 @@ class MyMacro(Runnable):
         args = ['ec2', 'terminate-instance', '--instances-ids', '$(aws']
         args = args + ['ec2', 'describe-instances']
         args = args + ['--query "Reservations[].Instances[].InstanceId"']
-        args = args + ['--filters "Name=eks:cluster-name,Values={}'.format(self.config['clusterId']), '--output text)']
+        args = args + ['--filters "Name=eks:cluster-name,Values={}'.format(self.config['clusterId']), '--output text', 'dry-run)']
+        print(args)
         c = None
         c = AwsCommand(args, connection_info)
         command_outputs = []
         command_outputs.append(c.run())
-        print(command_outputs[0][3])
+
         
         
         #can get rid of it afterwards. Only used for testing syntax as successful return will not generate the output
