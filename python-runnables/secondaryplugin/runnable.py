@@ -157,7 +157,7 @@ class MyMacro(Runnable):
         
         
         #can get rid of it afterwards. Only used for testing syntax as successful return will not generate the output
-        #with open("test.yaml", "w") as f:
+        with open("test.yaml", "w") as f:
             f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
             kind: ENIConfig
             metadata:
