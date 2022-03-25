@@ -149,16 +149,16 @@ class MyMacro(Runnable):
         
         
         #can get rid of it afterwards. Only used for testing syntax as successful return will not generate the output
-        with open("test.yaml", "w") as f:
-            f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
-            kind: ENIConfig
-            metadata:
-              name: """ + "us-east-1a" + """
-                spec:
-            subnet: """ + str(s[0]) + """    #add multiple subnets 
-              securityGroups:
-              - """ + securitygroup)
-            f.close()
+        #with open("test.yaml", "w") as f:
+        #    f.write("""apiVersion: crd.k8s.amazonaws.com/v1alpha1
+        #    kind: ENIConfig
+        #    metadata:
+        #      name: """ + "us-east-1a" + """
+        #        spec:
+        #    subnet: """ + str(s[0]) + """    #add multiple subnets 
+        #      securityGroups:
+        #      - """ + securitygroup)
+        #    f.close()
         
         result = "success"
         return result
