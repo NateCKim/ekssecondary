@@ -134,7 +134,7 @@ class MyMacro(Runnable):
         args = ['ec2', 'terminate-instances', '--instance-ids', '$(aws ec2 describe-instances']
         #args = args + ['ec2', 'describe-instances']
         args = args + ['--query "Reservations[].Instances[].InstanceId"']
-        args = args + ['--filters "Name=eks:cluster-name,Values={}'.format(self.config['clusterId'])'"', '--output text)']
+        args = args + ['--filters "Name=eks:cluster-name,Values={}"'.format(self.config['clusterId']), '--output text)']
         c = None
         c = AwsCommand(args, connection_info)
         command_outputs = []
