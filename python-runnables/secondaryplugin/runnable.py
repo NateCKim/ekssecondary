@@ -131,8 +131,9 @@ class MyMacro(Runnable):
         
         #pass in self.config to get nodegroup. Set the Desire (if desire is > 0 scale to 0 )
         #aws ec2 terminate-instances --instance-ids $(aws ec2 describe-instances --query 'Reservations[].Instances[].InstanceId' --filters "Name=tag:tagkey,Values=tagvalue" --output text)
-        t =self.config['clusterId']
-        print(t)
+        t = self.config['clusterId']
+        remove_space = [x.strip(' ') for x in t]
+        print(remove_space)
         
         args = ['ec2', 'describe-instances']
         args = args + ['--query "Reservations[].Instances[].InstanceId"']
