@@ -136,7 +136,7 @@ class MyMacro(Runnable):
         
         args = ['ec2', 'describe-instances']
         args = args + ['--query "Reservations[].Instances[].InstanceId"']
-        args = args + ['--filters "Name=eks:cluster-name,Values="','',t '--output text']
+        args = args + ['--filters "Name=eks:cluster-name,Values="', '--output text']
         c = None
         c = AwsCommand(args, connection_info)
         command_outputs = []
