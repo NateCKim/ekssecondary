@@ -148,7 +148,7 @@ class MyMacro(Runnable):
         r['list'] = command_outputs[0][2].strip().replace('"','').replace('\n','').replace(' ','')
         print(r['list'])
 
-        for kk in r['list']:
+        for kk in r:
             args = []
             args = ['ec2', 'terminate-instances', '--instance-ids', kk]
             c = None
