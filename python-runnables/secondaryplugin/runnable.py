@@ -152,7 +152,7 @@ class MyMacro(Runnable):
             r['list'] = pp
             kk.append(r)
 
-        print(test)
+        print(kk)
         #args = ['ec2', 'terminate-instances', '--instance-ids', '{}'.format(r)]
         #args = ['ec2', 'terminate-instances', '--instance-ids', '"$(aws ec2 describe-instances']
         #args = args + ['ec2', 'describe-instances']
