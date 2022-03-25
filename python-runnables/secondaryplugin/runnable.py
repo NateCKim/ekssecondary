@@ -150,7 +150,7 @@ class MyMacro(Runnable):
 
         for kk in r['list']:
             args = []
-            args = ['ec2', 'terminate-instances', '--instance-ids', kk.split(' ')]
+            args = ['ec2', 'terminate-instances', '--instance-ids', kk]
             c = None
             c = AwsCommand(args, connection_info)
             command_outputs = []
