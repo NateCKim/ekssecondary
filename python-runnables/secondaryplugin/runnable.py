@@ -135,16 +135,16 @@ class MyMacro(Runnable):
         #aws ec2 terminate-instances --instance-ids $(aws ec2 describe-instances --query 'Reservations[].Instances[].InstanceId' --filters "Name=tag:tagkey,Values=tagvalue" --output text
         r = $(aws ec2 describe-instances --query "Reservations[].Instances[].InstanceId" --filters "Name=eks:cluster-name,Values=nate4" --output text )
         
-        #args = ['ec2', 'terminate-instances', '--instance-ids', '{}'.format(r)']
+        args = ['ec2', 'terminate-instances', '--instance-ids', '{}'.format(r)]
         #args = ['ec2', 'terminate-instances', '--instance-ids', '"$(aws ec2 describe-instances']
         #args = args + ['ec2', 'describe-instances']
         #args = args + ['--query "Reservations[].Instances[].InstanceId"']
         #args = args + ['--filters "Name=eks:cluster-name,Values={}"'.format(self.config['clusterId']), '--output text)"']
-        #c = None
-        #c = AwsCommand(args, connection_info)
-        #command_outputs = []
-        #command_outputs.append(c.run())
-        #print(command_outputs)
+        c = None
+        c = AwsCommand(args, connection_info)
+        command_outputs = []
+        command_outputs.append(c.run())
+        print(command_outputs)
 
         
         
