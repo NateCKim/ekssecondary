@@ -141,7 +141,7 @@ class MyMacro(Runnable):
         c = AwsCommand(args, connection_info)
         command_outputs = []
         command_outputs.append(c.run())
-        print(command_outputs[0][2])
+        print(command_outputs)
 
         #args = ['ec2', 'terminate-instances', '--instance-ids', '{}'.format(r)]
         #args = ['ec2', 'terminate-instances', '--instance-ids', '"$(aws ec2 describe-instances']
