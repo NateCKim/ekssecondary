@@ -146,11 +146,11 @@ class MyMacro(Runnable):
    
         r = {}
         r['list'] = command_outputs[0][2].strip().replace('"','').replace('\n','').replace(' ','')
-        test = []
+        kk = []
         for pp in kk:
             r = {}
             r['list'] = pp
-            test.append(r)
+            kk.append(r)
 
         print(test)
         #args = ['ec2', 'terminate-instances', '--instance-ids', '{}'.format(r)]
