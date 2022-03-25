@@ -139,7 +139,7 @@ class MyMacro(Runnable):
         c = AwsCommand(args, connection_info)
         command_outputs = []
         command_outputs.append(c.run())
-        print(command_outputs[0][2])
+        print(command_outputs)
 
         
         
