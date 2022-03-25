@@ -146,7 +146,7 @@ class MyMacro(Runnable):
    
 
         r = {}
-        rsave = command_outputs[0][2].split('\t')
+        rsave = command_outputs[0][2].split('\t').replace('\n','')
         #rsave = command_outputs[0][2].strip().replace('"','').replace('\n','').replace(' ','').split(' ')
         print(rsave)
 
