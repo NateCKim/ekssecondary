@@ -142,15 +142,10 @@ class MyMacro(Runnable):
         c = AwsCommand(args, connection_info)
         command_outputs = []
         command_outputs.append(c.run())
-        print(command_outputs)
-   
 
-        #rsave = command_outputs[0][2].split('\t')
-        #rsave = command_outputs[0][2].strip().replace('"','').replace('\n','').replace(' ','')
+   
         rsave = command_outputs[0][2].replace('\n',' ').replace('"','').replace(',','').replace('[','').replace(']','').split()
-        #rsave = command_outputs[0][2]
-        print(rsave)
-       
+
 
         for kk in rsave:
             args = []
@@ -159,21 +154,10 @@ class MyMacro(Runnable):
             c = AwsCommand(args, connection_info)
             command_outputs = []
             command_outputs.append(c.run())
-            print(command_outputs)
+
         
 
-
-        #args = ['ec2', 'terminate-instances', '--instance-ids', '{}'.format(r)]
-        #args = ['ec2', 'terminate-instances', '--instance-ids', '"$(aws ec2 describe-instances']
-        #args = args + ['ec2', 'describe-instances']
-        #args = args + ['--query "Reservations[].Instances[].InstanceId"']
-        #args = args + ['--filters "Name=eks:cluster-name,Values={}"'.format(self.config['clusterId']), '--output text)"']
-        #c = None
-        #c = AwsCommand(args, connection_info)
-        #command_outputs = []
-        #command_outputs.append(c.run())
-        #print(command_outputs)
-
+       
         
         
         #can get rid of it afterwards. Only used for testing syntax as successful return will not generate the output
