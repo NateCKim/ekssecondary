@@ -153,15 +153,13 @@ class MyMacro(Runnable):
        
 
         for kk in rsave:
-            
-            print(kk)
-       #     args = []
-       #     args = ['ec2', 'terminate-instances', '--instance-ids', kk]
-       #     c = None
-       #     c = AwsCommand(args, connection_info)
-       #     command_outputs = []
-       #     command_outputs.append(c.run())
-       #     print(command_outputs)
+            args = []
+            args = ['ec2', 'terminate-instances', '--instance-ids', kk]
+            c = None
+            c = AwsCommand(args, connection_info)
+            command_outputs = []
+            command_outputs.append(c.run())
+            print(command_outputs)
         
 
 
