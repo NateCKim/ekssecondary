@@ -149,15 +149,11 @@ class MyMacro(Runnable):
         #rsave = command_outputs[0][2].strip().replace('"','').replace('\n','').replace(' ','')
         rsave = command_outputs[0][2]
         print(rsave)
-        
-        list = ['test', 'test1', 'test2', 'test3']
-        
-        for i in list:
-            print(i)
+       
 
-       # for kk in rsave:
-       #     
-       #     print(kk)
+        for kk in rsave:
+            
+            print(kk)
        #     args = []
        #     args = ['ec2', 'terminate-instances', '--instance-ids', kk]
        #     c = None
