@@ -149,6 +149,10 @@ class MyMacro(Runnable):
         rsave = command_outputs[0][2].strip().replace('"','').replace('\n','').replace(' ','')
         print(rsave)
         
+        list = [test, test1, test2, test3]
+        
+        for i in list:
+            print(i)
 
         for kk in rsave:
             
