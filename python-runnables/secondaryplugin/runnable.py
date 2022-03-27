@@ -151,7 +151,7 @@ class MyMacro(Runnable):
         print(rsave)
         
         cv = rsave.split(',')
-        print(cv)
+        print(cv + "printed result")
 
      #   for kk in r['list']:
      #       args = []
