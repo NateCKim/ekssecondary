@@ -150,8 +150,6 @@ class MyMacro(Runnable):
         rsave = command_outputs[0][2].strip().replace('"','').replace('\n','').replace(' ','')
         print(rsave)
         
-        cv = rsave.split(',')
-        print(cv + "printed result")
 
      #   for kk in r['list']:
      #       args = []
