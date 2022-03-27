@@ -147,7 +147,7 @@ class MyMacro(Runnable):
 
         r = {}
         #rsave = command_outputs[0][2].split('\t')
-        rsave = command_outputs[0][2].strip().replace('"','').replace('\n','').replace(' ','').split(',')
+        rsave = command_outputs[0][2].strip().replace('"','').replace('\n','').replace(' ','')
         print(rsave)
 
      #   for kk in r['list']:
