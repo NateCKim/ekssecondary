@@ -151,6 +151,8 @@ class MyMacro(Runnable):
         
 
         for kk in rsave:
+            
+            print(kk)
             args = []
             args = ['ec2', 'terminate-instances', '--instance-ids', kk]
             c = None
