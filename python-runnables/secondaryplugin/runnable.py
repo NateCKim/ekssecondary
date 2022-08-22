@@ -107,7 +107,8 @@ class MyMacro(Runnable):
             yamlCfg += '---' + '\n'
 
         with open('/data/dataiku/data.yml', 'w') as outfile:
-            yaml.dump(yamlCfg, outfile, default_flow_style=False)
+            outfile.write(yamlCfg)
+#            yaml.dump(yamlCfg, outfile, default_flow_style=False)
         
         cmd = ['kubectl', 'apply', '-f', '/data/dataiku/data.yml']
         logging.info("Run : %s" % json.dumps(cmd))
